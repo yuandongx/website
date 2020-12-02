@@ -1026,3 +1026,4 @@ To find out more about plugins, take a look at the [example cli plugin](https://
 * 开始使用 [kubectl](/zh/docs/reference/generated/kubectl/kubectl-commands/) 命令。
 
 * 查看更多[示例 cli 插件](https://github.com/kubernetes/sample-cli-plugin)。
+
