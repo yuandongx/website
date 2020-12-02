@@ -31,8 +31,8 @@ You can specify other [kubeconfig](/docs/concepts/configuration/organize-cluster
 files by setting the KUBECONFIG environment variable or by setting the
 [`--kubeconfig`](/docs/concepts/configuration/organize-cluster-access-kubeconfig/) flag.
 -->
-可以使用 Kubectl 命令行工具来管理 Kubernetes 集群。
-`kubectl` 在 $HOME/.kube 目录中查找一个名为 `config` 的配置文件。
+ Kubectl 命令行工具用来管理 Kubernetes 集群。
+`kubectl` 在 `$HOME/.kube` 目录中查找一个名为 `config` 的配置文件。
 你可以通过设置 KUBECONFIG 环境变量或设置 [`--kubeconfig`](/zh/docs/concepts/configuration/organize-cluster-access-kubeconfig/)
 参数来指定其它 [kubeconfig](/zh/docs/concepts/configuration/organize-cluster-access-kubeconfig/) 文件。
 
@@ -44,8 +44,8 @@ For installation instructions see [installing kubectl](/docs/tasks/tools/install
 -->
 本文概述了 `kubectl` 语法和命令操作描述，并提供了常见的示例。
 有关每个命令的详细信息，包括所有受支持的参数和子命令，
-请参阅 [kubectl](/zh/docs/reference/generated/kubectl/kubectl-commands/) 参考文档。
-有关安装说明，请参见 [安装 kubectl](/zh/docs/tasks/tools/install-kubectl/) 。
+请参阅 [kubectl](/docs/reference/generated/kubectl/kubectl-commands/) 参考文档。
+有关安装说明，请参见[安装 kubectl](/zh/docs/tasks/tools/install-kubectl/) 。
 
 
 
@@ -124,7 +124,7 @@ where `command`, `TYPE`, `NAME`, and `flags` are:
 
    * 用一个或多个文件指定资源：`-f file1 -f file2 -f file<#>`
 
-      * [使用 YAML 而不是 JSON](/zh/docs/concepts/configuration/overview/#general-config-tips) 因为 YAML 更容易使用，特别是用于配置文件时。<br/>
+      * [使用 YAML 而不是 JSON](/zh/docs/concepts/configuration/overview/#general-config-tips)因为 YAML 更容易使用，特别是用于配置文件时。<br/>
      例子：`kubectl get -f ./pod.yaml`
 
 * `flags`: 指定可选的参数。例如，可以使用 `-s` 或 `-server` 参数指定 Kubernetes API 服务器的地址和端口。<br/>
@@ -749,11 +749,8 @@ kubectl delete pods --all
 # 使用 pod.yaml 文件中指定的类型和名称删除 pod。
 kubectl delete -f pod.yaml
 
-# 删除标签名= <label-name> 的所有 pod 和服务。
-kubectl delete pods,services -l name=<label-name>
-
-# 删除所有具有标签名称= <label-name> 的 pod 和服务，包括未初始化的那些。
-kubectl delete pods,services -l name=<label-name> --include-uninitialized
+# 删除所有带有 '<label-key>=<label-value>' 标签的 Pod 和服务。
+kubectl delete pods,services -l <label-key>=<label-value>
 
 # 删除所有 pod，包括未初始化的 pod。
 kubectl delete pods --all
@@ -777,13 +774,13 @@ kubectl exec -ti <pod-name> -- /bin/bash
 
 ```shell
 # 从 pod <pod-name> 中获取运行 'date' 的输出。默认情况下，输出来自第一个容器。
-kubectl exec <pod-name> date
+kubectl exec <pod-name> -- date
 
 # 运行输出 'date' 获取在容器的 <container-name> 中 pod <pod-name> 的输出。
-kubectl exec <pod-name> -c <container-name> date
+kubectl exec <pod-name> -c <container-name> -- date
 
 # 获取一个交互 TTY 并运行 /bin/bash <pod-name >。默认情况下，输出来自第一个容器。
-kubectl exec -ti <pod-name> /bin/bash
+kubectl exec -ti <pod-name> -- /bin/bash
 ```
 
 <!--
@@ -845,12 +842,16 @@ kubectl hello
 # 用任何语言创建一个简单的插件，并为生成的可执行文件命名
 # 以前缀 "kubectl-" 开始
 cat ./kubectl-hello
+```
+
+```shell
 #!/bin/bash
 
 # 这个插件打印单词 "hello world"
 echo "hello world"
-
-# 这个插件写好了，把它变成可执行的
+```
+这个插件写好了，把它变成可执行的：
+```bash
 sudo chmod a+x ./kubectl-hello
 
 # 并将其移动到路径中的某个位置
@@ -871,7 +872,7 @@ hello world
 sudo rm /usr/local/bin/kubectl-hello
 ```
 -->
-```
+```shell
 # 你可以"卸载"一个插件，只需从你的路径中删除它
 sudo rm /usr/local/bin/kubectl-hello
 ```
@@ -894,9 +895,9 @@ The following kubectl-compatible plugins are available:
 /usr/local/bin/kubectl-bar
 ```
 -->
-输出类似如下：
+输出类似于：
 ```
-以下 kubectl-适配 的插件是可用的：
+以下 kubectl-适配的插件是可用的：
 
 /usr/local/bin/kubectl-hello
 /usr/local/bin/kubectl-foo
@@ -910,7 +911,7 @@ sudo chmod -x /usr/local/bin/kubectl-foo # remove execute permission
 kubectl plugin list
 ```
 -->
-```
+```shell
 # `kubectl plugin list`指令也可以向你告警哪些插件
 # 被运行，或是被其它插件覆盖了
 # 例如:
