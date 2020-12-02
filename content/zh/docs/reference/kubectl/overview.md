@@ -213,9 +213,9 @@ Operation       | Syntax    |       Description
 `autoscale`    | <code>kubectl autoscale (-f FILENAME &#124; TYPE NAME &#124; TYPE/NAME) [--min=MINPODS] --max=MAXPODS [--cpu-percent=CPU] [flags]</code> | 自动伸缩由副本控制器管理的一组 pod。
 `certificate`    | `kubectl certificate SUBCOMMAND [options]` | 修改证书资源。
 `cluster-info`    | `kubectl cluster-info [flags]` | 显示有关集群中主服务器和服务的端口信息。
-`completion`    | `kubectl completion SHELL [options]` | 为指定的 shell （bash 或 zsh）输出 shell 完成代码。
+`completion`    | `kubectl completion SHELL [options]` | 为指定的 shell （bash 或 zsh）输出 shell 补齐代码代码。
 `config`        | `kubectl config SUBCOMMAND [flags]` | 修改 kubeconfig 文件。有关详细信息，请参阅各个子命令。
-`convert`    | `kubectl convert -f FILENAME [options]` | 在不同的API版本之间转换配置文件。配置文件可以是 YAML 或 JSON 格式。
+`convert`    | `kubectl convert -f FILENAME [options]` | 在不同的 API 版本之间转换配置文件。配置文件可以是 YAML 或 JSON 格式。
 `cordon`    | `kubectl cordon NODE [options]` | 将节点标记为不可调度。
 `cp`    | `kubectl cp <file-spec-src> <file-spec-dest> [options]` | 在容器之间复制文件和目录。
 `create`        | `kubectl create -f FILENAME [flags]` | 从文件或 stdin 创建一个或多个资源。
@@ -237,12 +237,12 @@ Operation       | Syntax    |       Description
 `port-forward`    | `kubectl port-forward POD [LOCAL_PORT:]REMOTE_PORT [...[LOCAL_PORT_N:]REMOTE_PORT_N] [flags]` | 将一个或多个本地端口转发到一个 pod。
 `proxy`        | `kubectl proxy [--port=PORT] [--www=static-dir] [--www-prefix=prefix] [--api-prefix=prefix] [flags]` | 运行 Kubernetes API 服务器的代理。
 `replace`        | `kubectl replace -f FILENAME` | 从文件或标准输入中替换资源。
-`rollout`    | `kubectl rollout SUBCOMMAND [options]` | 管理资源的部署。有效的资源类型包括：部署，守护程序集和状态集。
+`rollout`    | `kubectl rollout SUBCOMMAND [options]` | 管理资源的部署。有效的资源类型包括：Deployments, DaemonSets 和 StatefulSets。
 `run`        | <code>kubectl run NAME --image=image [--env="key=value"] [--port=port] [--dry-run=server &#124; client &#124; none] [--overrides=inline-json] [flags]</code> | 在集群上运行指定的镜像。
 `scale`        | <code>kubectl scale (-f FILENAME &#124; TYPE NAME &#124; TYPE/NAME) --replicas=COUNT [--resource-version=version] [--current-replicas=count] [flags]</code> | 更新指定副本控制器的大小。
 `set`    | `kubectl set SUBCOMMAND [options]` | 配置应用程序资源。
 `taint`    | `kubectl taint NODE NAME KEY_1=VAL_1:TAINT_EFFECT_1 ... KEY_N=VAL_N:TAINT_EFFECT_N [options]` | 更新一个或多个节点上的污点。
-`top`    | `kubectl top [flags] [options]` | 显示资源（CPU /内存/存储）的使用情况。
+`top`    | `kubectl top [flags] [options]` | 显示资源（CPU/内存/存储）的使用情况。
 `uncordon`    | `kubectl uncordon NODE [options]` | 将节点标记为可调度。
 `version`        | `kubectl version [--client] [flags]` | 显示运行在客户端和服务器上的 Kubernetes 版本。
 `wait`    | <code>kubectl wait ([-f FILENAME] &#124; resource.group/resource.name &#124; resource.group [(-l label &#124; --all)]) [--for=delete&#124;--for condition=available] [options]</code> | 实验性：等待一种或多种资源的特定条件。
