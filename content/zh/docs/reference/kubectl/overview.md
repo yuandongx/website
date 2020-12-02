@@ -31,7 +31,7 @@ You can specify other [kubeconfig](/docs/concepts/configuration/organize-cluster
 files by setting the KUBECONFIG environment variable or by setting the
 [`--kubeconfig`](/docs/concepts/configuration/organize-cluster-access-kubeconfig/) flag.
 -->
- Kubectl 命令行工具用来管理 Kubernetes 集群。
+你可以使用 Kubectl 命令行工具管理 Kubernetes 集群。
 `kubectl` 在 `$HOME/.kube` 目录中查找一个名为 `config` 的配置文件。
 你可以通过设置 KUBECONFIG 环境变量或设置 [`--kubeconfig`](/zh/docs/concepts/configuration/organize-cluster-access-kubeconfig/)
 参数来指定其它 [kubeconfig](/zh/docs/concepts/configuration/organize-cluster-access-kubeconfig/) 文件。
@@ -95,7 +95,7 @@ where `command`, `TYPE`, `NAME`, and `flags` are:
 
 * `NAME`：指定资源的名称。名称区分大小写。如果省略名称，则显示所有资源的详细信息 `kubectl get pods`。
 
-  在对多个资源执行操作时，您可以按类型和名称指定每个资源，或指定一个或多个文件：
+  在对多个资源执行操作时，你可以按类型和名称指定每个资源，或指定一个或多个文件：
 
 <!--
    * To specify resources by type and name:
@@ -124,7 +124,7 @@ where `command`, `TYPE`, `NAME`, and `flags` are:
 
    * 用一个或多个文件指定资源：`-f file1 -f file2 -f file<#>`
 
-      * [使用 YAML 而不是 JSON](/zh/docs/concepts/configuration/overview/#general-config-tips)因为 YAML 更容易使用，特别是用于配置文件时。<br/>
+      * [使用 YAML 而不是 JSON](/zh/docs/concepts/configuration/overview/#general-config-tips) 因为 YAML 更容易使用，特别是用于配置文件时。<br/>
      例子：`kubectl get -f ./pod.yaml`
 
 * `flags`: 指定可选的参数。例如，可以使用 `-s` 或 `-server` 参数指定 Kubernetes API 服务器的地址和端口。<br/>
@@ -140,7 +140,7 @@ Flags that you specify from the command line override default values and any cor
 <!--
 If you need help, just run `kubectl help` from the terminal window.
 -->
-如果您需要帮助，只需从终端窗口运行 ` kubectl help ` 即可。
+如果你需要帮助，只需从终端窗口运行 ` kubectl help ` 即可。
 
 <!--
 ## Operations
@@ -477,7 +477,7 @@ for details about which output format is supported by each command.
 <!--
 To define custom columns and output only the details that you want into a table, you can use the `custom-columns` option. You can choose to define the custom columns inline or use a template file: `-o=custom-columns=<spec>` or `-o=custom-columns-file=<filename>`.
 -->
-要定义自定义列并仅将所需的详细信息输出到表中，可以使用该 custom-columns 选项。您可以选择内联定义自定义列或使用模板文件：`-o=custom-columns=<spec>` 或 `-o=custom-columns-file=<filename>`。
+要定义自定义列并仅将所需的详细信息输出到表中，可以使用该 custom-columns 选项。你可以选择内联定义自定义列或使用模板文件：`-o=custom-columns=<spec>` 或 `-o=custom-columns-file=<filename>`。
 
 <!--
 ##### Examples
@@ -607,7 +607,7 @@ kubectl get pods --sort-by=.metadata.name
 <!--
 Use the following set of examples to help you familiarize yourself with running the commonly used `kubectl` operations:
 -->
-使用以下示例集来帮助您熟悉运行常用 kubectl 操作：
+使用以下示例集来帮助你熟悉运行常用 kubectl 操作：
 
 <!--
 `kubectl apply` - Apply or Update a resource from a file or stdin.
@@ -658,7 +658,7 @@ kubectl get pods
 # 以纯文本输出格式列出所有 pod，并包含附加信息(如节点名)。
 kubectl get pods -o wide
 
-# 以纯文本输出格式列出具有指定名称的副本控制器。提示：您可以使用别名 'rc' 缩短和替换 'replicationcontroller' 资源类型。
+# 以纯文本输出格式列出具有指定名称的副本控制器。提示：你可以使用别名 'rc' 缩短和替换 'replicationcontroller' 资源类型。
 kubectl get replicationcontroller <rc-name>
 
 # 以纯文本输出格式列出所有副本控制器和服务。
@@ -720,7 +720,7 @@ command retrieves not only the information about the node, but also a summary of
 the pods running on it, the events generated for the node etc.
 -->
 `kubectl get` 命令通常用于检索同一资源类型的一个或多个资源。
-它具有丰富的参数，允许您使用 `-o` 或 `--output` 参数自定义输出格式。您可以指定 `-w` 或 `--watch` 参数以开始观察特定对象的更新。
+它具有丰富的参数，允许你使用 `-o` 或 `--output` 参数自定义输出格式。你可以指定 `-w` 或 `--watch` 参数以开始观察特定对象的更新。
 `kubectl describe` 命令更侧重于描述指定资源的许多相关方面。它可以调用对 `API 服务器` 的多个 API 调用来为用户构建视图。
 例如，该 `kubectl describe node` 命令不仅检索有关节点的信息，还检索在其上运行的 pod 的摘要，为节点生成的事件等。
 
@@ -813,7 +813,7 @@ kubectl logs -f <pod-name>
 <!--
 Use the following set of examples to help you familiarize yourself with writing and using `kubectl` plugins:
 -->
-使用以下示例来帮助您熟悉编写和使用 `kubectl` 插件：
+使用以下示例来帮助你熟悉编写和使用 `kubectl` 插件：
 
 <!--
 ```shell
@@ -839,7 +839,7 @@ kubectl hello
 ```
 -->
 ```shell
-# 用任何语言创建一个简单的插件，并为生成的可执行文件命名
+# 用任何语言创建一个简单的插件，并为把生成的可执行文件命名
 # 以前缀 "kubectl-" 开始
 cat ./kubectl-hello
 ```
@@ -959,7 +959,7 @@ cat ./kubectl-whoami
 The next few examples assume that you already made `kubectl-whoami` have
 the following contents:
 -->
-接下来的几个示例假设您已经将“kubectl whoami”设置为以下内容:
+接下来的几个示例假设你已经将“kubectl whoami”设置为以下内容:
 
 <!--
 ```shell
